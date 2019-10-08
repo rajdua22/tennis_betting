@@ -17,8 +17,6 @@ Our initial publicly available dataset contained a number of features about both
 
 Before trying to beat the bookmakers, we first wanted to explore how correct the bookmakers really are. First, we simply took the average odds for all the bookmakers who posted odds for each match. Odds in our dataset were listed as decimals (return per dollar bet). For example, a player with odds of 2.5 returns a total of $2.50 for every $1 bet should they win. It’s easy to see that a player with odds under 2.0 is favored and above is an underdog. However, these odds include a rake, or hold, (typically 3-7 percent) that the bookmaker’s use to generate profit. To calculate implied percentages of each player winning (according to the bookmaker’s), we took the inverse of each player’s odds and then adjusted for the rake. Let the bookmaker’s odds of player A winning be x. Let the bookmaker’s odds of player B winning be y. So, player A’s implied odds are (1/x)/((1/x) + (1/y)). Similarly, player B’s implied odds are (1/y) /((1/x) + (1/y)). In figure 1, we bucket matches by implied win percentages and graph this implied percentage vs actual win percentage. 
 
-![Image of Figure1](https://github.com/rajdua22/tennis_betting/blob/master/Picture1.png)
-
 
 Figure 1. The bookmakers tend to be extremely accurate, although they may undersell large favorites.
 
@@ -35,7 +33,6 @@ Our first approach made use of simple logistic regression. To train, we used Ela
 A slightly improved approach made use of a neural network with 2 fully-connected Dense layers with ReLu activations. Our input was 24 dimensions with a single sigmoid activated output corresponding to the probability of a player winning the match. To train, we used a binary- cross entropy loss function and a RMS prop optimizer with 30 epochs and a batch size of 128. The neural network was by far the highest performing, with an accuracy of 72.13 %. Figure 2 shows the same graph from Figure 1 with our new predictions added in green. 
 
 ![Image of Figure2](https://github.com/rajdua22/tennis_betting/blob/master/Picture1.png)
-
 Figure 2: The bookmaker’s predictions are in blue, our predictions are in green, and red is the ideal predictive model.
 
 Of course, the real test of our accuracy in this case is whether or not our predictions can beat the odds and make money. This testing is described in the following section.
@@ -47,19 +44,18 @@ We bet a percentage of our wealth on each match according to the Kelly criterion
 
  
 ![Image of Figure3](https://github.com/rajdua22/tennis_betting/blob/master/Picture2.png)
-
 Figure 3: Wealth over time using fractional Kelly betting and alpha of 0.69.
 
 ![Image of Figure4](https://github.com/rajdua22/tennis_betting/blob/master/Picture3.png)
-
 Figure 4: Wealth over time using fractional Kelly betting and alpha of 0.69 (log graph).
+
 
 I think the most interesting part of my study was investigating the optimal fractional Kelly. Kelly proved that if you know with exact certainty the probability of an event happening, then his formula provides the best percentage of your wealth to wager on each bet way to maximize your wealth over time without going broke. However, most probabilities and estimates in the real world are far from exact, so most practitioners rely on a fractional Kelly, which is basically the percentage of wealth Kelly recommends multiplied by a number between 0 and 1. This reduces variance and subsequently reduces the chances of going broke. While the optimal fraction (alpha) is still debated, most studies find that a number close to 1/2 works well and indeed gives better results than a full Kelly approach. Interestingly enough, in my simulations, I found the optimal value to be close to 0.69.  Figure 5 is a graph showing the ending wealth (y axis) for different values of alpha, or fraction, (x axis) of the Kelly formula that I use. I have also attached a paper that I think you may find of interest where the authors talk about their use of a fractional Kelly approach and show its advantages over a full Kelly when exact probabilities of an event occurring are unknown. 
 
 
 ![Image of Figure5](https://github.com/rajdua22/tennis_betting/blob/master/Picture4.png)
-
 Figure 5: Ending wealth for different values of alpha. In our model, the optimal value was about 0.69.
+
 
 
 II.	Conclusion and Next Steps
