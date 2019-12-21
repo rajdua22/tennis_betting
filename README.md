@@ -43,17 +43,17 @@ I bet a percentage of my wealth on each match according to the Kelly criterion. 
 
 
  
-![Image of Figure3](https://github.com/rajdua22/tennis_betting/blob/master/Picture2.png)
+![Image of Figure3](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFigures/Picture2.png)
 Figure 3: Wealth over time using fractional Kelly betting and alpha of 0.69.
 
-![Image of Figure4](https://github.com/rajdua22/tennis_betting/blob/master/Picture3.png)
+![Image of Figure4](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFigures/Picture3.png)
 Figure 4: Wealth over time using fractional Kelly betting and alpha of 0.69 (log graph).
 
 
 I think the most interesting part of my study was investigating the optimal fractional Kelly. Kelly proved that if you know with exact certainty the probability of an event happening, then his formula provides the best percentage of your wealth to wager on each bet way to maximize your wealth over time without going broke. However, most probabilities and estimates in the real world are far from exact, so most practitioners rely on a fractional Kelly, which is basically the percentage of wealth Kelly recommends multiplied by a number between 0 and 1. This reduces variance and subsequently reduces the chances of going broke. While the optimal fraction (alpha) is still debated, most studies find that a number close to 1/2 works well and indeed gives better results than a full Kelly approach. Interestingly enough, in my simulations, I found the optimal value to be close to 0.69.  Figure 5 is a graph showing the ending wealth (y axis) for different values of alpha, or fraction, (x axis) of the Kelly formula that I use. I have also attached a paper that I think you may find of interest where the authors talk about their use of a fractional Kelly approach and show its advantages over a full Kelly when exact probabilities of an event occurring are unknown. 
 
 
-![Image of Figure5](https://github.com/rajdua22/tennis_betting/blob/master/Picture4.png)
+![Image of Figure5](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFigures/Picture4.png)
 Figure 5: Ending wealth for different values of alpha. In my model, the optimal value was about 0.69.
 
 
