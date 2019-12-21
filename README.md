@@ -17,7 +17,7 @@ My initial publicly available dataset contained a number of features about both 
 
 Before trying to beat the bookmakers, I first wanted to explore how correct the bookmakers really are. First, I simply took the average odds for all the bookmakers who posted odds for each match. Odds in my dataset were listed as decimals (return per dollar bet). For example, a player with odds of 2.5 returns a total of $2.50 for every $1 bet should they win. It’s easy to see that a player with odds under 2.0 is favored and above is an underdog. However, these odds include a rake, or hold, (typically 3-7 percent) that the bookmaker’s use to generate profit. To calculate implied percentages of each player winning (according to the bookmaker’s), I took the inverse of each player’s odds and then adjusted for the rake. Let the bookmaker’s odds of player A winning be x. Let the bookmaker’s odds of player B winning be y. So, player A’s implied odds are (1/x)/((1/x) + (1/y)). Similarly, player B’s implied odds are (1/y) /((1/x) + (1/y)). In figure 1, I bucket matches by implied win percentages and graph this implied percentage vs actual win percentage. 
 
-![Image of Figure1](https://github.com/rajdua22/tennis_betting/ReadMeFigures/Picture5.png)
+![Image of Figure1](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFigures/Picture5.png)
 Figure 1. The bookmakers tend to be extremely accurate, although they may undersell large favorites.
 
 IV.	Feature Generation.
