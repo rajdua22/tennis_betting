@@ -32,7 +32,7 @@ My first approach made use of simple logistic regression. To train, I used Elast
 
 A slightly improved approach made use of a neural network with 2 fully-connected Dense layers with ReLu activations. My input was 24 dimensions with a single sigmoid activated output corresponding to the probability of a player winning the match. To train, I used a binary- cross entropy loss function and a RMS prop optimizer with 30 epochs and a batch size of 128. The neural network was by far the highest performing, with an accuracy of 72.13 %. Figure 2 shows the same graph from Figure 1 with my new predictions added in green. 
 
-![Image of Figure2](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFiguresPicture1.png)
+![Image of Figure2](https://github.com/rajdua22/tennis_betting/blob/master/ReadMeFigures/Picture1.png)
 Figure 2: The bookmaker’s predictions are in blue, my predictions are in green, and red is the ideal predictive model.
 
 Of course, the real test of my accuracy in this case is whether or not my predictions can beat the odds and make money. This testing is described in the following section.
